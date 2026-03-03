@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Suplementos</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily:
+                {
+                    barlow: ['Barlow', 'sans-serif'],
+                },
+                colors: {
+                    primary: '#ca3c3f',
+                    dark: '#222222',
+                    muted: '#999999',
+                    footer: '#333333',
+                }
+            },
+        },
+    }
+</script>
+
+<body class="bg-gray-50">
+
+    <nav class="bg-white shadow-md fixed w-full z-10" x-data="{ open: false }">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+            <a href="#" class="flex items-center space-x-2">
+
+                <img src="assets/img/logo.png" alt="Logo" class="h-10 w-auto">
+                <span class="text-2xl font-bold text-red-600 hidden sm:inline">Machado Suplementos</span>
+            </a>
+
+            <button @click="open = !open" class="md:hidden text-gray-700 focus:outline-none">
+                <svg x-show="!open" class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg x-show="open" class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-red-600 font-semibold">Home</a>
+                <a href="#produtos" class="text-gray-700 hover:text-red-600 font-semibold">Produtos</a>
+                <a href="#sobre" class="text-gray-700 hover:text-red-600 font-semibold">Sobre</a>
+                <a href="#contato" class="text-gray-700 hover:text-red-600 font-semibold">Contato</a>
+            </div>
+        </div>
+
+        <div x-show="open" class="md:hidden bg-white shadow-md">
+            <a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-red-50">Home</a>
+            <a href="#produtos" class="block px-4 py-2 text-gray-700 hover:bg-red-50">Produtos</a>
+            <a href="#sobre" class="block px-4 py-2 text-gray-700 hover:bg-red-50">Sobre</a>
+            <a href="#contato" class="block px-4 py-2 text-gray-700 hover:bg-red-50">Contato</a>
+        </div>
+    </nav>
+    <div class="h-16"></div>
+
+
+    <div class="h-16"></div>
+
+
+    <section class="banner">
+        <div class="coluna">
+            <p>Suplementos de alta qualidade para seu treino</p>
+            <p><a class="botao" href="#produtos">VEJA OS PRODUTOS</a></p>
+        </div>
+        <div class="coluna">
+            <img src="./assets/img/Banner.png" alt="prato">
+        </div>
+    </section>
+
+
+    <section class="produtos" id="produtos">
+        <h1>Produtos</h1>
+
+        <!-- menu de categoria inicio -->
+        <nav id="nav-categorias" class="overflow-x-auto whitespace-nowrap snap-x flex gap-2 mt-6 pb-1">
+            <button data-cat="proteinas"
+                class="snap-start px-4 py-1 rounded-full bg-primary text-white font-bold text-sm transition-transform duration-150 cursor-pointer flex-shrink-0 btn-cat">Proteínas</button>
+            <button data-cat="vitaminas"
+                class="snap-start px-4 py-1 rounded-full bg-primary text-white font-bold text-sm transition-transform duration-150 cursor-pointer flex-shrink-0 btn-cat">Vitaminas</button>
+            <button data-cat="acessorios"
+                class="snap-start px-4 py-1 rounded-full bg-primary text-white font-bold text-sm transition-transform duration-150 cursor-pointer flex-shrink-0 btn-cat">Acessórios</button>
+            <button data-cat="outros"
+                class="snap-start px-4 py-1 rounded-full bg-primary text-white font-bold text-sm transition-transform duration-150 cursor-pointer flex-shrink-0 btn-cat">Outros</button>
+        </nav>
+
+        <!-- menu de categoria fim -->
+
+        <!-- categoria: proteinas-->
+        <div id="cat-proteinas" class="cardapio-conteudo">
+            <div class="text-left text-primary text-[22px] mt-[50px]">
+                Proteínas
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Whey Protein (1kg)</div>
+                <div class="cardapio-preco text-black">R$ 120,00</div>
+                <div class="cardapio-descricao text-black">Proteína isolada sabor chocolate</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Caseína Micelar</div>
+                <div class="cardapio-preco text-black">R$ 129,00</div>
+                <div class="cardapio-descricao text-black">Proteína de absorção lenta sabor baunilha</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Blend de Proteínas Veganas</div>
+                <div class="cardapio-preco text-black">R$ 159,00</div>
+                <div class="cardapio-descricao text-black">Mistura de ervilha, arroz e cânhamo</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Barra de Proteína</div>
+                <div class="cardapio-preco text-black">R$ 6,00</div>
+                <div class="cardapio-descricao text-black">Sabor chocolate, 50g</div>
+            </div>
+        </div>
+
+        <!-- categoria: vitaminas-->
+        <div id="cat-vitaminas" class="cardapio-conteudo hidden">
+            <div class="text-left text-primary text-[22px] mt-[50px]">
+                Vitaminas
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Vitamina C 1000mg</div>
+                <div class="cardapio-preco text-black">R$ 49,00</div>
+                <div class="cardapio-descricao text-black">120 cápsulas para reforçar imunidade</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Multivitamínico</div>
+                <div class="cardapio-preco text-black">R$ 69,00</div>
+                <div class="cardapio-descricao text-black">Suporte diário de vitaminas e minerais</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Omega 3</div>
+                <div class="cardapio-preco text-black">R$ 79,00</div>
+                <div class="cardapio-descricao text-black">60 cápsulas com EPA/DHA</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Creatina Monohidratada</div>
+                <div class="cardapio-preco text-black">R$ 89,00</div>
+                <div class="cardapio-descricao text-black">300g para força e recuperação</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">BCAA 2:1:1</div>
+                <div class="cardapio-preco text-black">R$ 129,00</div>
+                <div class="cardapio-descricao text-black">60 cápsulas para recuperação muscular</div>
+            </div>
+        </div>
+
+        <!-- categoria: acessorios-->
+        <div id="cat-acessorios" class="cardapio-conteudo hidden">
+            <div class="text-left text-primary text-[22px] mt-[50px]">
+                Acessórios
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Shaker Profissional</div>
+                <div class="cardapio-preco text-black">R$ 39,00</div>
+                <div class="cardapio-descricao text-black">450ml com grade misturadora</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Cinta de Levantamento</div>
+                <div class="cardapio-preco text-black">R$ 89,00</div>
+                <div class="cardapio-descricao text-black">Suporte lombar ajustável</div>
+            </div>
+               <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Strap</div>
+                <div class="cardapio-preco text-black">R$ 49,00</div>
+                <div class="cardapio-descricao text-black">aumentar a firmeza da pegada e permitir o levantamento de cargas mais altas em exercícios de puxada</div>
+            </div>
+        </div>
+
+        <!-- categoria: outros-->
+        <div id="cat-outros" class="cardapio-conteudo hidden">
+            <div class="text-left text-primary text-[22px] mt-[50px]">
+                Outros
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Pré-treino</div>
+                <div class="cardapio-preco text-black">R$ 99,00</div>
+                <div class="cardapio-descricao text-black">300g sabor frutas vermelhas</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Doce Protéico</div>
+                <div class="cardapio-preco text-black">R$ 15,00</div>
+                <div class="cardapio-descricao text-black">Brownies e cookies com proteína</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome text-black">Molhos e Temperos</div>
+                <div class="cardapio-preco text-black">R$ 12,00</div>
+                <div class="cardapio-descricao text-black">Temperos para realçar sabor das refeições</div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="mt-[100px] text-center p-[50px] text-sm text-white bg-footer">
+        <h3 class="font-bold text-lg">Suplementos Pro</h3>
+        <p class="my-[3px]">Rua Prof. Toledo, 500, centro - Sorocaba</p>
+        <p class="my-[3px]">WhatsApp: (15) 98765-4321</p>
+        <p class="my-[3px]">Aberto todos os dias das 14h ás 23h</p>
+    </footer>
+
+    <a href="https://wa.me/5515987654321" target="_blank" class="link-whatsapp">
+        <img src="./assets/img/whatsapp.png" alt="link-whatsapp">
+    </a>
+    <script>
+        const botoes = document.querySelectorAll('.btn-cat');
+        const conteudos = document.querySelectorAll('.cardapio-conteudo');
+
+        function mostrarCategoria(cat) {
+            //monstrar o conteudo da categoria selecionada
+            conteudos.forEach(div => {
+                div.id === 'cat-' + cat
+                    ? div.classList.remove('hidden')
+                    : div.classList.add('hidden');
+            });
+            //atualizar o estilo do botão ativo
+            botoes.forEach(btn => {
+                if (btn.dataset.cat === cat) {
+                    btn.classList.add('bg-primary', 'text-white');
+                    btn.classList.remove('bg-[#ebebeb]', 'text-dark');
+                }else {
+                    btn.classList.remove('bg-primary', 'text-white');
+                    btn.classList.add('bg-[#ebebeb]', 'text-dark');
+                }
+            });
+        }
+
+        // botoes.forEach(btn => {
+        //     btn.addEventListener('touchstart', () => {
+        //         btn.classList.add('scale-95');
+        //         mudarCategoria(btn.dataset.cat);
+        //     });
+        //         btn.addEventListener('touchend', () => {
+        //             btn.classList.remove('scale-95');
+        //         });
+        //         btn.addEventListener('click', () => {
+        //             mostrarCategoria(btn.dataset.cat);
+        //         });
+        // });
+      //ativar sroll suave para os links internos
+        let startX = 0;
+        let startY = 0;
+
+        //EVENTOS DE CADA BOTÃO
+        botoes.forEach(btn => {
+            //touchstart e disparado assim que o usuário toca no botão
+            btn.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                btn.classList.add('scale-95');
+                //aplicar class tailwind para dar um efeito de clique
+                btn.classList.add('scale-95', opacity-80);
+            });
+            //touchend e disparado quando o usuário levanta o dedo do botão
+            btn.addEventListener('touchend', (e) => {
+                //remove efeito visual
+                btn.classList.remove('scale-95', 'opacity-80');
+                //ultima posicao de dedo antes de levantar
+                const endX = e.changedTouches[0].clientX;
+                const endY = e.changedTouches[0].clientY;
+                //calcular a distancia do movimento
+                const deltaX = Math.abs(endX - startX);
+                const deltaY = Math.abs(endY - startY);
+                if (deltaX < 10 && deltaY < 10) {
+                    mostrarCategoria(btn.dataset.cat);
+                }
+            });
+            btn.addEventListener('click', ( ) => {
+                btn.classList.remove('scale-95', 'opacity-80');
+            });
+            btn.addEventListener('click', () => {
+                mostrarCategoria(btn.dataset.cat);
+            }); 
+        });
+    </script>
+
+</body>
+
+</html>
+
